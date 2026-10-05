@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300" width="100%" height="100%">
+  <defs>
+    <style>
+      .box { fill: #1e293b; stroke: #38bdf8; stroke-width: 2; rx: 8; }
+      .box-highlight { fill: #0f172a; stroke: #818cf8; stroke-width: 2; rx: 8; }
+      .title { fill: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; font-weight: bold; text-anchor: middle; }
+      .subtitle { fill: #94a3b8; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; text-anchor: middle; }
+      .arrow { stroke: #38bdf8; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .dash-arrow { stroke: #a855f7; stroke-width: 2; stroke-dasharray: 4,4; fill: none; marker-end: url(#arrowhead-purple); }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#38bdf8" />
+    </marker>
+    <marker id="arrowhead-purple" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#a855f7" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="300" fill="#090d16" rx="12"/>
+
+  <!-- SoC Node -->
+  <rect x="30" y="50" width="160" height="180" class="box" />
+  <text x="110" y="80" class="title">Cockpit SoC</text>
+  <text x="110" y="115" class="subtitle">Display Controller (CRTC)</text>
+  <text x="110" y="140" class="subtitle">Hardware Compositor</text>
+  <text x="110" y="165" class="subtitle">MIPI DSI / eDP TX PHY</text>
+  <text x="110" y="205" fill="#38bdf8" font-family="sans-serif" font-size="11px" font-weight="600" text-anchor="middle">Central ECU</text>
+
+  <!-- Arrow SoC to SER -->
+  <path d="M 190 140 L 230 140" class="arrow" />
+
+  <!-- Serializer Node -->
+  <rect x="230" y="70" width="140" height="140" class="box" />
+  <text x="300" y="105" class="title">Serializer</text>
+  <text x="300" y="130" class="subtitle">FPD-Link / GMSL / APIX</text>
+  <text x="300" y="155" class="subtitle">PoC Injector (12V DC)</text>
+  <text x="300" y="180" class="subtitle">I2C Alias Translator</text>
+
+  <!-- Arrow SER to DES (Cable) -->
+  <path d="M 370 140 L 490 140" class="arrow" />
+  <text x="430" y="125" fill="#38bdf8" font-family="sans-serif" font-size="11px" font-weight="600" text-anchor="middle">50Ω Coax Cable</text>
+  <text x="430" y="160" fill="#94a3b8" font-family="sans-serif" font-size="10px" text-anchor="middle">Video + PoC + Backchannel</text>
+
+  <!-- Deserializer Node -->
+  <rect x="490" y="70" width="140" height="140" class="box" />
+  <text x="560" y="105" class="title">Deserializer</text>
+  <text x="560" y="130" class="subtitle">CDR Clock Recovery</text>
+  <text x="560" y="155" class="subtitle">PoC Power Splitter</text>
+  <text x="560" y="180" class="subtitle">GPIO / IRQ Tunneling</text>
+
+  <!-- Arrow DES to TCON -->
+  <path d="M 630 140 L 670 140" class="arrow" />
+
+  <!-- TCON / Bridge Node -->
+  <rect x="670" y="70" width="120" height="140" class="box" />
+  <text x="730" y="105" class="title">Bridge / TCON</text>
+  <text x="730" y="135" class="subtitle">OpenLDI / mini-LVDS</text>
+  <text x="730" y="160" class="subtitle">Column/Gate Timing</text>
+
+  <!-- Arrow TCON to Panel -->
+  <path d="M 790 140 L 830 140" class="arrow" />
+
+  <!-- Display Glass Node -->
+  <rect x="830" y="50" width="100" height="180" class="box-highlight" />
+  <text x="880" y="95" class="title">TFT Glass</text>
+  <text x="880" y="120" class="subtitle">Active Matrix</text>
+  <text x="880" y="145" class="subtitle">LED Backlight</text>
+  <text x="880" y="170" class="subtitle">PCAP Touch</text>
+  <text x="880" y="205" fill="#818cf8" font-family="sans-serif" font-size="11px" font-weight="600" text-anchor="middle">Display Assembly</text>
+
+  <!-- Legend / Footnote -->
+  <text x="480" y="270" fill="#64748b" font-family="sans-serif" font-size="11px" text-anchor="middle">Automotive Long-Reach Distributed Cockpit Architecture</text>
+</svg>
